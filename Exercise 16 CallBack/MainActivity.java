@@ -1,4 +1,4 @@
-package com.example.callback;
+package com.adee.callbackz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,24 +9,24 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
+Button b;
+TextView t;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button b=(Button)findViewById(R.id.clickme);
-        TextView t=(TextView)findViewById(R.id.txt);
+        b=(Button)findViewById(R.id.button);
+        t=(TextView) findViewById(R.id.t1);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent i=new Intent(MainActivity.this,Main2Activity.class);
+            public void onClick(View v) {
+                Intent i=new Intent(MainActivity.this,MainActivity2.class);
                 startActivity(i);
             }
         });
         Bundle bundle=getIntent().getExtras();
-        String msg=bundle.getString("msg");
-        if(msg!=null)
-        t.setText(msg);
+        String str=bundle.getString("msg");
+        t.setText(str);
 
     }
 }
